@@ -29,23 +29,50 @@
             <h4>by ten seconds!</h4>
         </section>
         <div class="rounded pl-3 pt-3 h-75 w-75 pb-5" id="question-1" style="background-color:aquamarine; display: none">
-            <p>__________ JavaScript is also called server-side JavaScript.</p>
-            <div ><input type="radio" id="option"  name="answer" value="1" >
-            <label for="1"> Microsoft</label>
+            <p>Which of the following attribute can hold the JavaScript version?</p>
+            <div >
+                <input type="radio" id="1-correct"  name="answer" value="1" >
+                <label for="1"> LANGUAGE</label>
             </div>
             <div >
-            <input type="radio" id="option"  name="answer" value="2">
-            <label for="2"> Navigator</label>
+                <input type="radio" id="1-incorrect"  name="answer" value="2">
+                <label for="2"> SCRIPT</label>
             </div>
             <div>
-            <input type="radio" id="option"  name="answer" value="3">
-            <label for="3"> LiveWire</label>
+                <input type="radio" id="1b-incorrect"  name="answer" value="3">
+                <label for="3"> LiveWire</label>
             </div>
-            <button type="button" class=" mt-3 btn btn-lg btn-primary"> Next</button>
+            <div>
+                <input type="radio" id="1c-incorrect"  name="answer" value="3">
+                <label for="3"> None of the above</label>
             </div>
+                <button type="button" class=" mt-3 btn btn-lg btn-primary" onclick="" id="first-question-button"> Next</button>
+            </div>
+        <div class="rounded pl-3 pt-3 h-75 w-75 pb-5" id="question-2" style="background-color:aquamarine; display: none">
+                <p> JavaScript entities start with _______ and end with _______? </p>
+                <div >
+                    <input type="radio" id="2c-incorrect"  name="answer" value="1" >
+                    <label for="1"> Semicolon, colon</label>
+                </div>
+                <div >
+                    <input type="radio" id="2-incorrect"  name="answer" value="2">
+                    <label for="2"> Semicolon, Ampersand </label>
+                </div>
+                <div>
+                    <input type="radio" id="2b-incorrect"  name="answer" value="3">
+                    <label for="3"> Ampersand, colone</label>
+                </div>
+                <div>
+                    <input type="radio" id="2-correct"  name="answer" value="3">
+                    <label for="3"> Ampersand, semicolon</label>
+                </div>
+                    <button type="button" class=" mt-3 btn btn-lg btn-primary" onclick="" id="first-question-button"> Next</button>
+                </div>    
         <button type="button" class="btn btn-primary btn-lg" id="start-button"> 
             Click Me!
         </button>
+        <h2 style="display: none" id="correct-answer">Correct! :D </h2>
+        <h2 style="display: none" id="incorrect-answer">Incorrect :(</h2>
     </main>
     
     
