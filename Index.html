@@ -4,18 +4,34 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Javascript Quiz</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/themes/base/jquery-ui.min.css">
     <link rel="stylesheet" href="./assets/style.css">
 </head>
 <body>
-    <header>
-        <h2>
-            View High Score
+    <header class="col-11 d-flex justify-content-between pt-4" >
+        <h2 class="pl-5 text-primary">
+            View High Scores
         </h2>
-        <h2>
+        <h2 class="pr-3">
             Time: 
         </h2>
     </header>
+    <main class="col-12 d-flex flex-column align-items-center row ">
+        <h1 class="m-5 pt-5 row">
+            Start Quiz
+        </h1>
+        <section class="m-5 align-self-center">
+            <h4 >Try to answer the following code-related questions within the time limit.</h4>
+            <h4>Keep in mind that incorrect answers will penalize your score/time</h4>
+            <h4>by ten seconds!</h4>
+        </section>
+        <button type="button" class="btn btn-primary btn-lg" id="start-button">
+            Click Me!
+        </button>
+    </main>
+    
     
     <script src="./assets/script.js"></script>
 </body>
