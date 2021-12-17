@@ -23,12 +23,27 @@
         <h1 class="m-5 pt-5 row">
             Start Quiz
         </h1>
-        <section class="m-5 align-self-center">
+        <section class="m-5 align-self-center" id="quiz-overview">
             <h4 >Try to answer the following code-related questions within the time limit.</h4>
             <h4>Keep in mind that incorrect answers will penalize your score/time</h4>
             <h4>by ten seconds!</h4>
         </section>
-        <button type="button" class="btn btn-primary btn-lg" id="start-button">
+        <div class="rounded pl-3 pt-3 h-75 w-75 pb-5" id="question-1" style="background-color:aquamarine; display: none">
+            <p>__________ JavaScript is also called server-side JavaScript.</p>
+            <div ><input type="radio" id="option"  name="answer" value="1" >
+            <label for="1"> Microsoft</label>
+            </div>
+            <div >
+            <input type="radio" id="option"  name="answer" value="2">
+            <label for="2"> Navigator</label>
+            </div>
+            <div>
+            <input type="radio" id="option"  name="answer" value="3">
+            <label for="3"> LiveWire</label>
+            </div>
+            <button type="button" class=" mt-3 btn btn-lg btn-primary"> Next</button>
+            </div>
+        <button type="button" class="btn btn-primary btn-lg" id="start-button"> 
             Click Me!
         </button>
     </main>
