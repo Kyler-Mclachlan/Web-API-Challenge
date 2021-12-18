@@ -116,7 +116,7 @@ function scoreTotal(){
     document.getElementById('end-time').style.display = 'block';
     endTimeEl.textContent = timer;
     scoreEL.textContent = ("Score from correct answers " + score + " Score from time remaining " + timer + " Total score = " + totalScore + "   " );
-    const input = document.createElement("input");
+     input = document.createElement("input");
     const label = document.createElement("label");
     label.setAttribute("for", "username");
     label.innerHTML = "  Initals: ";
@@ -274,6 +274,7 @@ function eigthQuestionAnswer(){
 // }
 
 function storeHighscore(){
+    
     timer = 60;
     score = 0;
     document.getElementById('end-time').style.display = 'none';
@@ -282,6 +283,7 @@ function storeHighscore(){
     document.getElementById('time-left').style.display = 'block';
     document.getElementById('quiz-overview').style.display = 'block';
     document.getElementById('start-button').style.display = 'block';
+    console.log(input)
 }
 
 // Start
