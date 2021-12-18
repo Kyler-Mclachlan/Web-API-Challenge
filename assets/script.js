@@ -20,6 +20,7 @@ var buttoneigthQuestion = document.querySelector("#eigth-question-button");
 var scoreEL = document.querySelector("#score-total");
 var totalScoreEl = document.querySelector("#total-score");
 var timerEl = document.querySelector("#time-left");
+var endTimeEl = document.querySelector("#end-time");
 var score = 0;
 var questionsLeft = 10;
 var timer = 60;
@@ -106,9 +107,10 @@ function scoreTotal(){
     document.getElementById('score-total').style.display = 'block';
     document.getElementById('incorrect-answer').style.display = 'none';
     document.getElementById('correct-answer').style.display = 'none';
-    // timerEl.textContent = timer;
     totalScore = timer + score;
-    timerEl.textContent = timer;
+    document.getElementById('time-left').style.display = 'none';
+    document.getElementById('end-time').style.display = 'block';
+    endTimeEl.textContent = timer;
     scoreEL.textContent = ("Score from correct answers " + score + " Score from time remaining " + timer + " Total score = " + totalScore );
     return
 }
@@ -254,6 +256,10 @@ function eigthQuestionAnswer(){
         return
     }
 }
+
+// function noQuestionsRemain(){
+//     if ()
+// }
 
 
 // Start
