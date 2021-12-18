@@ -132,7 +132,7 @@ function eigthQuestion(event){
 
 // Score
 function scoreTotal(){
-    timer = 60;
+    timer = timer;
     document.getElementById('question-1').style.display = 'none';
     document.getElementById('question-2').style.display = 'none';
     document.getElementById('question-3').style.display = 'none';
@@ -155,7 +155,7 @@ function scoreTotal(){
 }
 // Store Highscore
 function storeHighscore(){
-    timer = 60;
+    timer = timer;
     score = 0;
     // for (i=0; i<highScores.lenght; i++){
     //     if (totalScore > i); 
