@@ -16,6 +16,10 @@ var buttonsixthQuestion = document.querySelector("#six-question-button");
 var buttonseventhQuestion = document.querySelector("#seventh-question-button");
 // eigth button
 var buttoneigthQuestion = document.querySelector("#eigth-question-button");
+// highscore opener
+var highScoreslinkEL = document.querySelector("#highscore-link");
+// highscore exit button
+var highScoreExitButtonEL = document.querySelector("#highScoreBackButton");
 // timer and score
 var scoreEL = document.querySelector("#score-total");
 var totalScoreEl = document.querySelector("#total-score");
@@ -148,10 +152,39 @@ function storeHighscore(){
     console.log(highScores)
 }
 
+// opens high score div
+function highScoresDiv(){
+    timer = 0;
+    document.getElementById('question-1').style.display = 'none';
+    document.getElementById('question-2').style.display = 'none';
+    document.getElementById('question-3').style.display = 'none';
+    document.getElementById('question-4').style.display = 'none';
+    document.getElementById('question-5').style.display = 'none';
+    document.getElementById('question-6').style.display = 'none';
+    document.getElementById('question-7').style.display = 'none';
+    document.getElementById('question-8').style.display = 'none';
+    document.getElementById('question-1').style.display = 'none';
+    document.getElementById('time-left').style.display = 'none';
+    document.getElementById('quiz-overview').style.display = 'none';
+    document.getElementById('start-button').style.display = 'none';
+    document.getElementById('incorrect-answer').style.display = 'none';
+    document.getElementById('correct-answer').style.display = 'none';
+    document.getElementById('highScore-list-container').style.display = 'block';
+    document.getElementById('highscore-timer').style.display = 'block';
+}
+
+// exits high score and returns to home screen
+function highscoreExit (){
+    document.getElementById('quiz-overview').style.display = 'block';
+    document.getElementById('start-button').style.display = 'block';
+    document.getElementById('highScore-list-container').style.display = 'none';
+    document.getElementById('highscore-timer').style.display = 'none';
+    document.getElementById('time-left').style.display = 'block';
+}
+
 
 //submitted answers for each question
 function firstQuestionAnswer(){
-    console.log(timer);
     if (document.getElementById('1-correct').checked){
         document.getElementById('correct-answer').style.display = 'block';
         score = score + 10;
@@ -165,7 +198,6 @@ function firstQuestionAnswer(){
 }
 
 function secondQuestionAnswer(){
-    console.log(timer);
     if (document.getElementById('2-correct').checked){
         document.getElementById('correct-answer').style.display = 'block';
         document.getElementById('incorrect-answer').style.display = 'none';
@@ -182,7 +214,6 @@ function secondQuestionAnswer(){
 }
 
 function thirdQuestionAnswer(){
-    console.log(timer);
     console.log(questionsLeft);
     if (document.getElementById('3-correct').checked){
         document.getElementById('correct-answer').style.display = 'block';
@@ -338,3 +369,7 @@ buttoneigthQuestion.addEventListener("click", inputForm);
 
 //initials
 initalsButton.addEventListener("click", storeHighscore);
+
+//highscore
+highScoreslinkEL.addEventListener("click", highScoresDiv);
+highScoreExitButtonEL.addEventListener("click", highscoreExit);

@@ -11,13 +11,14 @@
 </head>
 <body>
     <header class="col-11 d-flex justify-content-between pt-4" >
-        <h2 class="pl-5 text-primary">
+        <button class="btn-lg text-primary btn btn-link" id="highscore-link">
             View High Scores
-        </h2>
+        </button>
         <h2 class="pr-3">
             Time left:
             <p id="time-left">60 seconds</p> 
             <p id="end-time" style="display: none"> seconds</p>
+            <p id="highscore-timer" style="display: none"> 60 seconds</p>
         </h2>
     </header>
     <main class="col-12 d-flex flex-column align-items-center row ">
@@ -189,6 +190,15 @@
                 </div>
                     <button type="button" class=" mt-3 btn btn-lg btn-primary" onclick="" id="eigth-question-button"> Next</button>
                 </div>
+        <div class="rounded pl-3 pt-3 h-75 w-75 pb-5" id="highScore-list-container" style="background-color:aquamarine; display: none">
+                <h1> Highscores! </p>
+                <ul id="highscore-list-child">
+                    <li>
+
+                    </li>
+                </ul>
+                    <button type="button" class=" mt-3 btn btn-lg btn-primary" onclick="" id="highScoreBackButton"> Exit High Scores</button>
+                </div>        
         <section class="rounded pl-3 pt-3 h-75 w-75 pb-5 h3" id="score-total" style="background-color:aquamarine; display: none">
         </section>                                                                           
         <button type="button" class="btn btn-primary btn-lg" id="start-button"> 
