@@ -75,8 +75,6 @@ function countdown(){
         else {
             timerEl.textContent = "0 seconds";
             clearInterval(timeDecay)
-            inputForm();
-            scoreTotal();
         }
     }, 1000);
     
@@ -132,7 +130,6 @@ function eigthQuestion(event){
 
 // Score
 function scoreTotal(){
-    timer = timer;
     document.getElementById('question-1').style.display = 'none';
     document.getElementById('question-2').style.display = 'none';
     document.getElementById('question-3').style.display = 'none';
@@ -155,7 +152,7 @@ function scoreTotal(){
 }
 // Store Highscore
 function storeHighscore(){
-    timer = timer;
+    timer = 0;
     score = 0;
     // for (i=0; i<highScores.lenght; i++){
     //     if (totalScore > i); 
@@ -173,7 +170,7 @@ function storeHighscore(){
 
 // opens high score div
 function highScoresDiv(){
-    timer = 60;
+    timer = 0;
     document.getElementById('question-1').style.display = 'none';
     document.getElementById('question-2').style.display = 'none';
     document.getElementById('question-3').style.display = 'none';
