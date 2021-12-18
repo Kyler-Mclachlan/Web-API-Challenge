@@ -49,8 +49,13 @@ function inputForm(){
 
 function getInputFromForm(){
     var playerScore = document.getElementById("score-input").value;
+    playerScore += " " + totalScore;
     highScores.push(playerScore, totalScore);
     console.log(highScores)
+    var ul = document.getElementById("highscore-list-child");
+    var li = document.createElement("li");
+    li.appendChild(document.createTextNode(playerScore));
+    ul.appendChild(li);
 }
 
 function stopCountdown(){
