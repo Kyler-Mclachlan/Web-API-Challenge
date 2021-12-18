@@ -22,6 +22,8 @@ var highScoreslinkEL = document.querySelector("#highscore-link");
 var highScoreExitButtonEL = document.querySelector("#highScoreBackButton");
 // highscore clear button
 var highScoreClearButtonEL = document.querySelector("#highScoreClearButton");
+//gameover button
+var gameOverButtonEl = document.querySelector("#gameover-button");
 // timer and score
 var scoreEL = document.querySelector("#score-total");
 var totalScoreEl = document.querySelector("#total-score");
@@ -73,15 +75,16 @@ function stopCountdown(){
 
 //starts timer
 function countdown(){
-    timer = 60;
+    timer = 10;
     var timeDecay = setInterval(function (){
         if (timer > 0){
             timerEl.textContent = timer;
             timer--;
             timerEl.textContent = timer + " seconds ";
         }
-        else {
-            timerEl.textContent = "0";
+        else if (timer <= 0) 
+        {
+            timerEl.textContent = "0 seconds";
             clearInterval(timeDecay)
         }
     }, 1000);
@@ -98,36 +101,60 @@ function secondQuestion(event){
     event.preventDefault();
     document.getElementById('question-1').style.display = 'none';
     document.getElementById('question-2').style.display = 'block';
+    if (timer <= 0){
+        gameOver();
+        console.log(timer)
+    }
 }
 // kicks off third question
 function thirdQuestion(event){
-    event.preventDefault();
+    // event.preventDefault();
     document.getElementById('question-2').style.display = 'none';
     document.getElementById('question-3').style.display = 'block';
+    if (timer <= 0){
+        gameOver();
+        console.log(timer)
+    }
 }
 // kicks off forth question
 function forthQuestion(event){
     event.preventDefault();
     document.getElementById('question-3').style.display = 'none';
     document.getElementById('question-4').style.display = 'block';
+    if (timer <= 0){
+        gameOver();
+        console.log(timer)
+    }
 }
 // kicks off fifth question
 function fifthQuestion(event){
     event.preventDefault();
     document.getElementById('question-4').style.display = 'none';
     document.getElementById('question-5').style.display = 'block';
+    if (timer <= 0){
+        gameOver();
+        console.log(timer)
+    }
 }
 //kicks of sixth question
 function sixthQuestion(event){
     event.preventDefault();
     document.getElementById('question-5').style.display = 'none';
     document.getElementById('question-6').style.display = 'block';
+    if (timer <= 0){
+        gameOver();
+        console.log(timer)
+    }
 }
 //kicks of seventh question
 function seventhQuestion(event){
     event.preventDefault();
     document.getElementById('question-6').style.display = 'none';
     document.getElementById('question-7').style.display = 'block';
+    if (timer <= 0){
+        gameOver();
+        console.log(timer)
+    }
 }
 //kicks of eigth question
 function eigthQuestion(event){
@@ -136,9 +163,24 @@ function eigthQuestion(event){
     document.getElementById('question-8').style.display = 'block';
 }
 
+//gameover Screen
+function gameOver(){
+    document.getElementById('question-1').style.display = 'none';
+    document.getElementById('question-2').style.display = 'none';
+    document.getElementById('question-3').style.display = 'none';
+    document.getElementById('question-4').style.display = 'none';
+    document.getElementById('question-5').style.display = 'none';
+    document.getElementById('question-6').style.display = 'none';
+    document.getElementById('question-7').style.display = 'none';
+    document.getElementById('question-8').style.display = 'none';
+    document.getElementById('gameOver').style.display = 'block';
+    document.getElementById('gameover-button').style.display = 'block';
+}
+
 // Score
 function scoreTotal(){
-    document.getElementById('question-8').style.display = 'none';
+    document.getElementById('gameOver').style.display = 'none';
+    document.getElementById('gameover-button').style.display = 'none';
     document.getElementById('score-total').style.display = 'block';
     document.getElementById('initals-button').style.display = 'flex';
     document.getElementById('initals-button').style.width = 'fit-content'
@@ -155,9 +197,6 @@ function scoreTotal(){
 function storeHighscore(){
     timer = 0;
     score = 0;
-    // for (i=0; i<highScores.lenght; i++){
-    //     if (totalScore > i); 
-    // }
     document.getElementById('end-time').style.display = 'none';
     document.getElementById('initals-form').style.display = 'none';
     document.getElementById('score-total').style.display = 'none';
@@ -381,8 +420,12 @@ buttonseventhQuestion.addEventListener("click", eigthQuestion);
 
 //eigth
 buttoneigthQuestion.addEventListener("click", eigthQuestionAnswer);
-buttoneigthQuestion.addEventListener("click", scoreTotal);
-buttoneigthQuestion.addEventListener("click", inputForm);
+buttoneigthQuestion.addEventListener("click", gameOver);
+
+
+//game over
+gameOverButtonEl.addEventListener("click", scoreTotal);
+gameOverButtonEl.addEventListener("click", inputForm);
 
 //initials
 initalsButton.addEventListener("click", storeHighscore);
@@ -390,4 +433,4 @@ initalsButton.addEventListener("click", storeHighscore);
 //highscore
 highScoreslinkEL.addEventListener("click", highScoresDiv);
 highScoreExitButtonEL.addEventListener("click", highscoreExit);
-highScoreClearButtonEL.addEventListener("click", clearHighScore)
+highScoreClearButtonEL.addEventListener("click", clearHighScore);
