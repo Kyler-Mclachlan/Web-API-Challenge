@@ -7,7 +7,7 @@ This project is a quiz that focuses on javasvript related questions. The users o
 If you wish to view the project simply click on the link below the image. Feel free to pull the repository (also linked below) if you wish to view the codebase. Thanks and please reach out to the email listed at the end of the document with any questions!
 
 # Image of website
-![plot](./assets/images/img_of_website.PNG)
+![plot](./image_of_website.png)
 
 # Link to website
 

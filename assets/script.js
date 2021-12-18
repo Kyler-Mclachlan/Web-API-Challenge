@@ -75,7 +75,7 @@ function stopCountdown(){
 
 //starts timer
 function countdown(){
-    timer = 10;
+    timer = 60;
     var timeDecay = setInterval(function (){
         if (timer > 0){
             timerEl.textContent = timer;
