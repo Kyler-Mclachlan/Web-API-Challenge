@@ -47,6 +47,12 @@ function inputForm(){
     document.getElementById('initals-form').style.display = 'block';
 }
 
+// function clearHighScore(){
+//     var ul = document.getElementById("highscore-list-child");
+//     var li = document.createElement("li");
+//     ul.removeChild(li)
+// }
+
 function getInputFromForm(){
     var playerScore = document.getElementById("score-input").value;
     let entry ={initials: playerScore, endscore: totalScore};
@@ -152,7 +158,6 @@ function scoreTotal(){
 }
 // Store Highscore
 function storeHighscore(){
-    timer = 0;
     score = 0;
     // for (i=0; i<highScores.lenght; i++){
     //     if (totalScore > i); 
@@ -170,7 +175,6 @@ function storeHighscore(){
 
 // opens high score div
 function highScoresDiv(){
-    timer = 0;
     document.getElementById('question-1').style.display = 'none';
     document.getElementById('question-2').style.display = 'none';
     document.getElementById('question-3').style.display = 'none';
