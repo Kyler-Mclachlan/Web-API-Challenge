@@ -49,13 +49,14 @@ function inputForm(){
 
 function getInputFromForm(){
     var playerScore = document.getElementById("score-input").value;
-    playerScore += " " + totalScore;
-    highScores.push(playerScore, totalScore);
-    console.log(highScores)
-    var ul = document.getElementById("highscore-list-child");
-    var li = document.createElement("li");
-    li.appendChild(document.createTextNode(playerScore));
-    ul.appendChild(li);
+    let entry ={initials: playerScore, endscore: totalScore};
+    highScores.push(entry);
+     playerScore += " " + totalScore;
+     console.log(highScores)
+     var ul = document.getElementById("highscore-list-child");
+     var li = document.createElement("li");
+     li.appendChild(document.createTextNode(playerScore));
+     ul.appendChild(li);
 }
 
 function stopCountdown(){
@@ -66,7 +67,7 @@ function stopCountdown(){
 function countdown(){
     timer = 60;
     var timeDecay = setInterval(function (){
-        if (timer >= 0){
+        if (timer > 0){
             timerEl.textContent = timer;
             timer--;
             timerEl.textContent = timer + " seconds ";
@@ -74,6 +75,8 @@ function countdown(){
         else {
             timerEl.textContent = "0";
             clearInterval(timeDecay)
+            scoreTotal();
+            inputForm();
         }
     }, 1000);
     
@@ -129,6 +132,13 @@ function eigthQuestion(event){
 
 // Score
 function scoreTotal(){
+    document.getElementById('question-1').style.display = 'none';
+    document.getElementById('question-2').style.display = 'none';
+    document.getElementById('question-3').style.display = 'none';
+    document.getElementById('question-4').style.display = 'none';
+    document.getElementById('question-5').style.display = 'none';
+    document.getElementById('question-6').style.display = 'none';
+    document.getElementById('question-7').style.display = 'none';
     document.getElementById('question-8').style.display = 'none';
     document.getElementById('score-total').style.display = 'block';
     document.getElementById('initals-button').style.display = 'flex';
@@ -146,6 +156,9 @@ function scoreTotal(){
 function storeHighscore(){
     timer = 0;
     score = 0;
+    // for (i=0; i<highScores.lenght; i++){
+    //     if (totalScore > i); 
+    // }
     document.getElementById('end-time').style.display = 'none';
     document.getElementById('initals-form').style.display = 'none';
     document.getElementById('score-total').style.display = 'none';
