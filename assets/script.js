@@ -21,17 +21,20 @@ var scoreEL = document.querySelector("#score-total");
 var totalScoreEl = document.querySelector("#total-score");
 var timerEl = document.querySelector("#time-left");
 var endTimeEl = document.querySelector("#end-time");
+// set variables
 var score = 0;
 var questionsLeft = 10;
 var timer = 60;
 var totalScore = 0;
 var pause = false;
+// Initals
+var initalsButton = document.querySelector("#initals-button");
 console.log(pause)
 
 // removes intro text
 function removeIntro(){
     document.getElementById('quiz-overview').style.display = 'none';
-    buttonEl.remove();
+    document.getElementById('start-button').style.display = 'none';
 }
 
 //starts timer
@@ -105,13 +108,22 @@ function eigthQuestion(){
 function scoreTotal(){
     document.getElementById('question-8').style.display = 'none';
     document.getElementById('score-total').style.display = 'block';
+    document.getElementById('initals-button').style.display = 'block';
     document.getElementById('incorrect-answer').style.display = 'none';
     document.getElementById('correct-answer').style.display = 'none';
     totalScore = timer + score;
     document.getElementById('time-left').style.display = 'none';
     document.getElementById('end-time').style.display = 'block';
     endTimeEl.textContent = timer;
-    scoreEL.textContent = ("Score from correct answers " + score + " Score from time remaining " + timer + " Total score = " + totalScore );
+    scoreEL.textContent = ("Score from correct answers " + score + " Score from time remaining " + timer + " Total score = " + totalScore + "   " );
+    const input = document.createElement("input");
+    const label = document.createElement("label");
+    label.setAttribute("for", "username");
+    label.innerHTML = "  Initals: ";
+    input.setAttribute("id", "username");
+    input.setAttribute("type", "text");
+    scoreEL.appendChild(label);
+    scoreEL.appendChild(input);
     return
 }
 
@@ -261,6 +273,16 @@ function eigthQuestionAnswer(){
 //     if ()
 // }
 
+function storeHighscore(){
+    timer = 60;
+    score = 0;
+    document.getElementById('end-time').style.display = 'none';
+    document.getElementById('score-total').style.display = 'none';
+    document.getElementById('initals-button').style.display = 'none';
+    document.getElementById('time-left').style.display = 'block';
+    document.getElementById('quiz-overview').style.display = 'block';
+    document.getElementById('start-button').style.display = 'block';
+}
 
 // Start
 buttonEl.addEventListener("click", firstQuestion);
@@ -300,3 +322,6 @@ buttonseventhQuestion.addEventListener("click", eigthQuestion);
 //eigth
 buttoneigthQuestion.addEventListener("click", eigthQuestionAnswer);
 buttoneigthQuestion.addEventListener("click", scoreTotal);
+
+//initials
+initalsButton.addEventListener("click", storeHighscore);
