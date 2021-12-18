@@ -57,13 +57,14 @@ function stopCountdown(){
 function countdown(){
     timer = 60;
     var timeDecay = setInterval(function (){
-        if (timer > 0){
+        if (timer >= 0){
             timerEl.textContent = timer;
             timer--;
             timerEl.textContent = timer + " seconds ";
         }
         else {
             timerEl.textContent = "0";
+            clearInterval(timeDecay)
         }
     }, 1000);
     
@@ -75,43 +76,43 @@ function firstQuestion(event){
     document.getElementById('question-1').style.display = 'block';
 }
 // kicks off second question
-function secondQuestion(){
+function secondQuestion(event){
     event.preventDefault();
     document.getElementById('question-1').style.display = 'none';
     document.getElementById('question-2').style.display = 'block';
 }
 // kicks off third question
-function thirdQuestion(){
+function thirdQuestion(event){
     event.preventDefault();
     document.getElementById('question-2').style.display = 'none';
     document.getElementById('question-3').style.display = 'block';
 }
 // kicks off forth question
-function forthQuestion(){
+function forthQuestion(event){
     event.preventDefault();
     document.getElementById('question-3').style.display = 'none';
     document.getElementById('question-4').style.display = 'block';
 }
 // kicks off fifth question
-function fifthQuestion(){
+function fifthQuestion(event){
     event.preventDefault();
     document.getElementById('question-4').style.display = 'none';
     document.getElementById('question-5').style.display = 'block';
 }
 //kicks of sixth question
-function sixthQuestion(){
+function sixthQuestion(event){
     event.preventDefault();
     document.getElementById('question-5').style.display = 'none';
     document.getElementById('question-6').style.display = 'block';
 }
 //kicks of seventh question
-function seventhQuestion(){
+function seventhQuestion(event){
     event.preventDefault();
     document.getElementById('question-6').style.display = 'none';
     document.getElementById('question-7').style.display = 'block';
 }
 //kicks of eigth question
-function eigthQuestion(){
+function eigthQuestion(event){
     event.preventDefault();
     document.getElementById('question-7').style.display = 'none';
     document.getElementById('question-8').style.display = 'block';
@@ -134,7 +135,7 @@ function scoreTotal(){
 }
 // Store Highscore
 function storeHighscore(){
-    stopCountdown(countdown);
+    timer = 0;
     score = 0;
     document.getElementById('end-time').style.display = 'none';
     document.getElementById('initals-form').style.display = 'none';
