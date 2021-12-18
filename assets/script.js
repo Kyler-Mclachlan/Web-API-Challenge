@@ -25,8 +25,10 @@ var endTimeEl = document.querySelector("#end-time");
 var score = 0;
 var questionsLeft = 10;
 var timer = 60;
-var totalScore = 0;
+var totalScore;
 var pause = false;
+var playerName;
+var highScores = [];
 // Initals
 var initalsButton = document.querySelector("#initals-button");
 console.log(pause)
@@ -36,21 +38,32 @@ function removeIntro(){
     document.getElementById('quiz-overview').style.display = 'none';
     document.getElementById('start-button').style.display = 'none';
 }
+// displays input form
+function inputForm(){
+    document.getElementById('initals-form').style.display = 'block';
+}
+
+function getInputFromForm(){
+    var playerScore = document.getElementById("score-input").value;
+    highScores.push(playerScore, totalScore);
+    console.log(highScores)
+}
+
+function stopCountdown(){
+    clearInterval(countdown);
+}
 
 //starts timer
 function countdown(){
+    timer = 60;
     var timeDecay = setInterval(function (){
-        if (timer > 0 && pause == false){
+        if (timer > 0){
             timerEl.textContent = timer;
             timer--;
             timerEl.textContent = timer + " seconds ";
         }
-        // if (timer < 0){
-        //     timerEl.textContent = "0" + " seconds ";
-        // } 
         else {
             timerEl.textContent = "0";
-            clearInterval(countdown);
         }
     }, 1000);
     
@@ -108,7 +121,8 @@ function eigthQuestion(){
 function scoreTotal(){
     document.getElementById('question-8').style.display = 'none';
     document.getElementById('score-total').style.display = 'block';
-    document.getElementById('initals-button').style.display = 'block';
+    document.getElementById('initals-button').style.display = 'flex';
+    document.getElementById('initals-button').style.width = 'fit-content'
     document.getElementById('incorrect-answer').style.display = 'none';
     document.getElementById('correct-answer').style.display = 'none';
     totalScore = timer + score;
@@ -116,15 +130,21 @@ function scoreTotal(){
     document.getElementById('end-time').style.display = 'block';
     endTimeEl.textContent = timer;
     scoreEL.textContent = ("Score from correct answers " + score + " Score from time remaining " + timer + " Total score = " + totalScore + "   " );
-     input = document.createElement("input");
-    const label = document.createElement("label");
-    label.setAttribute("for", "username");
-    label.innerHTML = "  Initals: ";
-    input.setAttribute("id", "username");
-    input.setAttribute("type", "text");
-    scoreEL.appendChild(label);
-    scoreEL.appendChild(input);
     return
+}
+// Store Highscore
+function storeHighscore(){
+    stopCountdown(countdown);
+    score = 0;
+    document.getElementById('end-time').style.display = 'none';
+    document.getElementById('initals-form').style.display = 'none';
+    document.getElementById('score-total').style.display = 'none';
+    document.getElementById('initals-button').style.display = 'none';
+    document.getElementById('time-left').style.display = 'block';
+    document.getElementById('quiz-overview').style.display = 'block';
+    document.getElementById('start-button').style.display = 'block';
+    getInputFromForm();
+    console.log(highScores)
 }
 
 
@@ -273,18 +293,7 @@ function eigthQuestionAnswer(){
 //     if ()
 // }
 
-function storeHighscore(){
-    
-    timer = 60;
-    score = 0;
-    document.getElementById('end-time').style.display = 'none';
-    document.getElementById('score-total').style.display = 'none';
-    document.getElementById('initals-button').style.display = 'none';
-    document.getElementById('time-left').style.display = 'block';
-    document.getElementById('quiz-overview').style.display = 'block';
-    document.getElementById('start-button').style.display = 'block';
-    console.log(input)
-}
+
 
 // Start
 buttonEl.addEventListener("click", firstQuestion);
@@ -324,6 +333,7 @@ buttonseventhQuestion.addEventListener("click", eigthQuestion);
 //eigth
 buttoneigthQuestion.addEventListener("click", eigthQuestionAnswer);
 buttoneigthQuestion.addEventListener("click", scoreTotal);
+buttoneigthQuestion.addEventListener("click", inputForm);
 
 //initials
 initalsButton.addEventListener("click", storeHighscore);

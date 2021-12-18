@@ -194,8 +194,11 @@
         <button type="button" class="btn btn-primary btn-lg" id="start-button"> 
             Click Me!
         </button>
-        <button type="button" class=" mt-3 btn btn-lg btn-primary" onclick="" style="display: none;" id="initals-button"> Submit
-        </button>
+        <form name="myform" action="" method="get" class="rounded pl-3 pt-3 h-75 w-75 pb-5" style="display: none;" id="initals-form">Enter your initals! Check the highscore board to see how you did. <BR>
+            <input type="text" name="inputbox" id="score-input" value=""><P>
+            <type="button" class=" mt-3 btn btn-lg btn-primary " onclick="" style="display: none;" id="initals-button">
+        Submit Score
+    </button>
         <h2 style="display: none" id="correct-answer">Correct! :D </h2>
         <h2 style="display: none" id="incorrect-answer">Incorrect :(</h2>
     </main>
